@@ -1,0 +1,10 @@
+.notfound {
+    height: 100%;
+}
+.notfound h1 {
+    padding-top: 30%;
+    font-weight: bold;
+    font-family: 'Exo 2';
+    font-size: 28px;
+    text-align: center;
+}
