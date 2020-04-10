@@ -15,7 +15,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="app-wrapper">
-				{/* <Route path="/" render={() => <Header />} /> */}
+				<Route path="/" render={() => <Header />} />
 
 				<div className='app-container'>
 					<Switch>

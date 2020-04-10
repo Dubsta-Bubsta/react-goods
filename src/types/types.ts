@@ -9,4 +9,5 @@ export type ProductType = {
 	category: string
 	count: number
 	avaliableForSale: boolean
+	img: string
 }

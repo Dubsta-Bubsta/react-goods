@@ -1,0 +1,41 @@
+.product {
+	display: flex;
+	flex-direction: column;
+	padding: 20px 10px;
+	transition: .3s;
+}
+
+.product:hover {
+	box-shadow: 0px 0px 10px #dfdfdf;
+}
+
+.img {
+	width: 100%;
+}
+
+.info {
+	display: flex;
+	justify-content: space-between;
+}
+
+.actions {
+	margin-top: 10px;
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-gap: 20px;
+}
+.btn {
+	padding: 5px;
+	transition: .3s;
+}
+.add_to_cart {
+	background: #8be0ae;
+}
+
+.add_to_compare {
+	background: #8bc5e0;
+}
+
+.remove_btn {
+	background: #e78a5e;
+}

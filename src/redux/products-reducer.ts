@@ -1,6 +1,11 @@
 import { AppStateType, ProductType } from '../types/types'
 import { ThunkAction } from 'redux-thunk'
 
+import cherryImg from '../assets/img/Cherry.png'
+import nutsImg from '../assets/img/Nuts.png'
+import orangeImg from '../assets/img/Orange.png'
+import strawberryImg from '../assets/img/Strawberry.png'
+
 const SET_PRODUCTS = 'products/SET_PRODUCTS'
 
 let initialState = {
@@ -12,6 +17,7 @@ let initialState = {
 			category: 'First category',
 			count: 10,
 			avaliableForSale: true,
+			img: cherryImg
 		},
 		{
 			id: 2,
@@ -20,6 +26,7 @@ let initialState = {
 			category: 'Second category',
 			count: 7,
 			avaliableForSale: false,
+			img: nutsImg
 		},
 		{
 			id: 3,
@@ -28,6 +35,16 @@ let initialState = {
 			category: 'Third category',
 			count: 5,
 			avaliableForSale: true,
+			img: orangeImg
+		},
+		{
+			id: 5,
+			title: 'Third product',
+			price: 150,
+			category: 'Third category',
+			count: 5,
+			avaliableForSale: true,
+			img: strawberryImg
 		}
 	] as Array<ProductType>
 }
