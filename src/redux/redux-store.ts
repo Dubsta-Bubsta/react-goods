@@ -1,3 +1,5 @@
+import { composeWithDevTools } from 'redux-devtools-extension'
+
 import { createStore, combineReducers, applyMiddleware } from "redux"
 
 import productsReducer from "./products-reducer"
@@ -7,7 +9,7 @@ import compareProducts from "./compare-reducer"
 import thunkMiddleware from "redux-thunk"
 
 let rootReducer = combineReducers({    
-    products: productsReducer,
+    productsList: productsReducer,
     cart: cartReducer,
     compareProducts: compareProducts,
 }); 
@@ -15,5 +17,5 @@ let rootReducer = combineReducers({
 
 export type RootReducerType = typeof rootReducer
 
-const store = createStore(rootReducer, applyMiddleware(thunkMiddleware));
+const store = createStore(rootReducer,composeWithDevTools (applyMiddleware(thunkMiddleware)));
 export default store;

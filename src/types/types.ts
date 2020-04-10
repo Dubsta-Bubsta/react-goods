@@ -8,5 +8,5 @@ export type ProductType = {
 	price: number
 	category: string
 	count: number
-	isOnStock: boolean
+	avaliableForSale: boolean
 }

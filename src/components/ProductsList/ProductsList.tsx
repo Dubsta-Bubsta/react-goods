@@ -2,6 +2,9 @@ import React, { FC } from 'react'
 import s from './ProductsList.module.css'
 import { ProductType } from '../../types/types';
 
+import cartImg from '../../assets/img/cart.png'
+import compareImg from '../../assets/img/compare.png'
+
 type ProductsListPropsType = {
 	products: Array<ProductType>
 	addToCart: (product: ProductType) => void
@@ -24,8 +27,8 @@ const ProductsList: FC<ProductsListPropsType> = ({products, ...props}) => {
 							<p className={s.title}>{product.title}</p>
 							<p className={s.price}>{product.price}</p>
 							<div className={s.actions}>
-								<div className="add_to_cart_btn btn" onClick={() => { props.addToCart(product) }}><img src="../../assets/img/cart.png" alt="cart-img"/></div>
-								<div className="add_to_compare_btn btn" onClick={() => { props.addToCompare(product) }}><img src="../../assets/img/cart.png" alt="cart-img"/></div>
+								<button className="add_to_cart_btn btn" onClick={() => { props.addToCart(product) }}><img src={cartImg} alt="cart-img"/></button>
+								<button className="add_to_compare_btn btn" onClick={() => { props.addToCompare(product) }}><img src={compareImg} alt="compare-img"/></button>
 							</div>
 						</div>
 					)
