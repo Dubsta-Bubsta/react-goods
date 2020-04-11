@@ -2,7 +2,6 @@ import React, { useEffect, FC } from 'react'
 import { useDispatch, useSelector} from "react-redux";
 
 import ProductsList from './ProductsList'
-import s from './ProductsList.module.css'
 import { ProductType, AppStateType } from '../../types/types'
 import { addToCart, removeFromCart } from '../../redux/cart-reducer';
 import { addToCompare, removeFromCompare } from '../../redux/compare-reducer';

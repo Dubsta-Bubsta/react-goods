@@ -7,6 +7,9 @@ import orangeImg from '../assets/img/Orange.png'
 import strawberryImg from '../assets/img/Strawberry.png'
 
 const SET_PRODUCTS = 'products/SET_PRODUCTS'
+const ADD_PRODUCT = 'products/ADD_PRODUCT'
+const EDIT_PRODUCT = 'products/EDIT_PRODUCT'
+const DELETE_PRODUCT = 'products/DELETE_PRODUCT'
 
 let initialState = {
 	products: [
@@ -50,7 +53,7 @@ let initialState = {
 }
 
 type InitialStateType = typeof initialState;
-type ActionsTypes = SetProductsType;
+type ActionsTypes = SetProductsType | AddProductType | DeleteProductType | EditProductType;
 
 const productsReducer = (state = initialState, action: ActionsTypes): InitialStateType => {
 	switch (action.type) {
@@ -58,6 +61,31 @@ const productsReducer = (state = initialState, action: ActionsTypes): InitialSta
 			return {
 				...state,
 				products: action.products
+			}
+		}
+		case ADD_PRODUCT: {
+			let product = {
+				id: state.products[state.products.length - 1].id + 1,
+				...action.product
+			}
+
+			return {
+				...state,
+				products: [...state.products, product]
+			}
+		}
+		case EDIT_PRODUCT: {
+			let newProducts = state.products.filter(product => product.id !== action.id)
+
+			return {
+				...state,
+				products: [...newProducts, action.product]
+			}
+		}
+		case DELETE_PRODUCT: {
+			return {
+				...state, 
+				products: state.products.filter(product => product.id !== action.id)
 			}
 		}
 
@@ -71,6 +99,19 @@ const productsReducer = (state = initialState, action: ActionsTypes): InitialSta
 type SetProductsType = {
 	type: typeof SET_PRODUCTS
 	products: Array<ProductType>
+}
+type AddProductType = {
+	type: typeof ADD_PRODUCT
+	product: ProductType
+}
+type EditProductType = {
+	type: typeof EDIT_PRODUCT
+	id: number
+	product: ProductType
+}
+type DeleteProductType = {
+	type: typeof DELETE_PRODUCT
+	id: number
 }
 
 
@@ -87,6 +128,24 @@ export const setProducts = (products: Array<ProductType>): SetProductsType => {
 		products
 	}
 }
-
+export const addProduct = (product: ProductType): AddProductType => {
+	return {
+		type: ADD_PRODUCT,
+		product
+	}
+}
+export const editProduct = (id: number, product: ProductType): EditProductType => {
+	return {
+		type: EDIT_PRODUCT,
+		id,
+		product
+	}
+}
+export const deleteProduct = (id: number): DeleteProductType => {
+	return {
+		type: DELETE_PRODUCT,
+		id		
+	}
+}
 
 export default productsReducer;
