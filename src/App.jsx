@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 import { Switch } from 'react-router';
 import { withRouter } from 'react-router'
 
-import HeaderContainer from './components/Header/HeaderContainer'
+import Header from './components/Header/Header'
 import ProductsListContainer from './components/ProductsList/ProductsListContainer'
 import Product from './components/Product/Product'
 import Cart from './components/Cart/Cart'
@@ -15,7 +15,7 @@ class App extends React.Component {
 	render() {
 		return (
 			<div className="app-wrapper">
-				<Route path="/" render={() => <HeaderContainer />} />
+				<Route path="/" render={() => <Header />} />
 
 				<div className='app-container'>
 					<Switch>

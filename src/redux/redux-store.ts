@@ -5,15 +5,13 @@ import { createStore, combineReducers, applyMiddleware } from "redux"
 import productsReducer from "./products-reducer"
 import cartReducer from "./cart-reducer"
 import compareProducts from "./compare-reducer"
-import filtersReducer from "./filters-reducer"
 
 import thunkMiddleware from "redux-thunk"
 
 let rootReducer = combineReducers({    
     productsList: productsReducer,
     cart: cartReducer,
-	compareProducts: compareProducts,
-	filters: filtersReducer
+    compareProducts: compareProducts,
 }); 
 
 
